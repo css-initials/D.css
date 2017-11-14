@@ -1,0 +1,13 @@
+@custom-selector :--D data-D;
+
+:root {
+
+	/* Default */
+	--D_P: 600px; /* Perspective */
+	--D_DP: 10vw;
+	--D_AXIS: cyan;
+}
+
+[:--D*="@"] {
+	transform-style: preserve-3d;
+}

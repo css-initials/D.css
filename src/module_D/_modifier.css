@@ -1,0 +1,127 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Global Modifier
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+[:--D*="_wireframe"],
+[:--D*="_shader"] {
+	--D_S-F: inherit;
+	--D_S-R: inherit;
+	--D_S-B: inherit;
+	--D_S-L: inherit;
+	--D_S-T: inherit;
+	--D_S-BT: inherit;
+	--D_WF-A: none;	
+
+
+}
+
+/*-----------------------
+	Wireframe
+-----------------------*/
+
+[:--D*="_wireframe"] {
+	--D_WF: 1px solid #000;
+	--D_S-F: transparent;
+	--D_S-R: transparent;
+	--D_S-B: transparent;
+	--D_S-L: transparent;
+	--D_S-T: transparent;
+	--D_S-BT: transparent;
+	outline: var(--D_WF);
+	
+}
+
+[:--D*="_wireframe-w"] {
+	--D_WF: 1px solid #fff;
+}
+
+[:--D*="-axis"] {
+	--D_WF-A: 1px solid var(--D_AXIS);
+}
+
+/*-----------------------
+	Shader
+-----------------------*/
+
+[:--D*="_shader"] {
+	--D_S-F: #fff; /* Front */
+	--D_S-R: #bbb; /* Right */
+	--D_S-B: #ccc; /* Back */
+	--D_S-L: #ddd; /* Left */
+	--D_S-T: #efefef; /* Top */
+	--D_S-BT: #aaa; /* Bottom */
+}
+
+[:--D*="_shader-b"] {
+	color: #fff;
+	--D_S-F: #333;
+	--D_S-R: #121212;
+	--D_S-B: #111;
+	--D_S-L: #222;
+	--D_S-T: #222;
+	--D_S-BT: #000;
+}
+
+/*-----------------------
+	Z Depth
+-----------------------*/
+[:--D*="_depth"] {
+	--D_DP: var(--D__DP);
+}
+
+/* Up */
+[:--D*="_depth-up"] {
+	--D__DP: 150px;
+}
+
+[:--D*="_depth-up+"] {
+	--D__DP: 200px;
+}
+
+[:--D*="_depth-up++"] {
+	--D__DP: 250px;
+}
+
+[:--D*="_depth-up+++"] {
+	--D__DP: 300px;
+}
+
+[:--D*="_depth-up++++"] {
+	--D__DP: 350px;
+}
+
+/* Down */
+[:--D*="_depth-down"] {
+	--D__DP: 80px;
+}
+
+[:--D*="_depth-down+"] {
+	--D__DP: 40px;
+}
+
+[:--D*="_depth-down++"] {
+	--D__DP: 20px;
+}
+
+[:--D*="_depth-down+++"] {
+	--D__DP: 10px;
+}
+
+[:--D*="_depth-down++++"] {
+	--D__DP: 5px;
+}
+
+/*-----------------------
+	Backface
+-----------------------*/
+
+[:--D*="_bs"] {
+	backface-visibility: visible;
+}
+
+[:--D*="_bs-hidden"] {
+	backface-visibility: hidden;
+}
+

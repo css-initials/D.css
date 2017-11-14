@@ -1,0 +1,263 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@cube-([1-2]|-custom)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+[:--D*="@cube"] {
+	--D_WF: inherit;
+	--D_S-F: inherit;
+	--D_S-R: inherit;
+	--D_S-B: inherit;
+	--D_S-L: inherit;
+	--D_S-T: inherit;
+	--D_S-BT: inherit;
+
+	transform-style: preserve-3d;
+	position: relative;
+
+	> * {
+		margin: 0!important;
+
+	}
+}
+
+[:--D*="@cube-0"],
+[:--D*="@cube-1"] {
+	border: var(--D_WF-A);
+	background-color: var(--D_S-F);
+}
+
+[:--D*="@cube-0"],
+[:--D*="@cube-1"],
+[:--D*="@cube-2"] {
+
+	/* Top & Botttom */
+	&::before,
+	&::after {
+		border: var(--D_WF);
+		content: "";
+		position: absolute;
+		left: 0;
+		height: var(--D_DP);
+		width: 100%;
+	}
+	/* Top */
+	&::before {
+		background-color: var(--D_S-T);
+		transform-origin: top;
+		transform: rotateX(-90deg);
+	}
+	/* Bottom */
+	&::after  {
+		background-color: var(--D_S-BT);
+		bottom: 0;
+		transform-origin: bottom;
+		transform: rotateX(90deg);
+	}
+}
+
+[:--D*="@cube-0"] > :last-child,
+[:--D*="@cube-1"] > :first-child,
+[:--D*="@cube-2"] > :nth-child(2) {
+	/* Side */
+	&::before,
+	&::after {
+		border-right: var(--D_WF);
+		border-left: var(--D_WF);
+		background-color: var(--D_S-L);
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: var(--D_DP);
+	}
+	/* Left */
+	&::before {
+		background-color: var(--D_S-L);
+		left: 0;
+		transform-origin: left;
+		transform: rotateY(90deg);
+	}
+	/* Right */
+	&::after {
+		background-color: var(--D_S-R);
+		right: 0;
+		transform-origin: right;
+		transform: rotateY(-90deg);
+	}
+}
+
+[:--D*="@cube-0"] > :nth-last-child(2)::after {
+	content: "";
+}
+
+[:--D*="@cube-0"] > :nth-last-child(2)::after,
+[:--D*="@cube-1"] > :first-child {
+	/* Back */
+	background-color: var(--D_S-B);
+	transform-style: preserve-3d;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform:
+		translateZ(calc(var(--D_DP) * -1))
+		rotateY(-180deg)
+	;
+}
+
+[:--D*="@cube-2"] {
+	border: var(--D_WF-A);
+	/* Top */
+	&::before {
+		background-color: var(--D_S-T);
+		transform:
+			translateZ(calc(var(--D_DP) / -2))
+			rotateX(90deg)
+		;
+	}
+	/* Bottom */
+	&::after {
+		background-color: var(--D_S-BT);
+		transform:
+			translateZ(calc(var(--D_DP) / -2))
+			rotateX(-90deg)
+		;
+	}
+	/* Front & Back */
+	> :first-child,
+	> :nth-child(2) {
+		background-color: var(--D_S-F);
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+	/* Front */
+	> :first-child {
+		background-color: var(--D_S-F);
+		transform:
+			translateZ(calc(var(--D_DP) / 2))
+		;
+	}
+	/* Back */
+	> :nth-child(2) {
+		background-color: var(--D_S-B);
+		transform-style: preserve-3d;
+		transform:
+			translateZ(calc(var(--D_DP) / -2))
+			rotateY(180deg)
+		;
+	}
+}
+
+[:--D*="@cube-2"] > :nth-child(2) {
+	/* Left */
+	&::after {
+		background-color: var(--D_S-L);
+		transform:
+			translateZ(calc(var(--D_DP) / -1))
+			rotateY(90deg)
+		;	
+	}
+	/* Right */
+	&::before {
+		background-color: var(--D_S-R);
+		transform:
+			translateZ(calc(var(--D_DP) / -1))
+			rotateY(-90deg)
+		;
+	}
+}
+
+/*-----------------------
+	Custom Surface
+-----------------------*/
+
+[:--D*="@cube-custom" i] {
+	border: var(--D_WF-A);
+}
+
+[:--D*="@mesh-"] {
+	background-color: var(--D__SBG);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: var(--D__MS-H);
+	width: var(--D__MS-W);
+	transform-origin: var(--D_OG);
+	transform:
+		translateZ(var(--D__TZM0, 0))
+		rotateX(var(--D__MRX0, 0))
+		rotateY(var(--D__MRY0, 0))
+	;
+}
+
+/* Common */
+[:--D*="@mesh-front"],
+[:--D*="@mesh-back"] {
+	--D__MS-H: 100%;
+	--D__MS-W: 100%;
+}
+
+[:--D*="@mesh-top"],
+[:--D*="@mesh-bottom"] {
+	--D__MS-H: var(--D_DP);
+	--D__MS-W: 100%;
+	--D__TZM0: calc(var(--D_DP) / -2);
+	border: var(--D_WF);
+}
+
+[:--D*="@mesh-left"],
+[:--D*="@mesh-right"] {
+	--D__MS-H: 100%;
+	--D__MS-W: var(--D_DP);
+	--D__TZM0: calc(var(--D_DP) / -2);
+	border-right: var(--D_WF);
+	border-left: var(--D_WF);
+}
+
+/* Front and back */
+[:--D*="@mesh-front"] {
+	--D__SBG: var(--D_S-F);
+	--D__TZM0: calc(var(--D_DP) / 2);
+}
+
+[:--D*="@mesh-back"] {
+	--D__SBG: var(--D_S-B);
+	--D__TZM0: calc(var(--D_DP) / -2);
+	--D__MRY0: 180deg;
+}
+
+/* Top and bottom */
+[:--D*="@mesh-top"] {
+	--D_OG: top;
+	--D__SBG: var(--D_S-T);
+	--D__MRX0: 90deg;
+}
+
+[:--D*="@mesh-bottom"] {
+	--D_OG: bottom;
+	--D__SBG: var(--D_S-BT);
+	--D__MRX0: -90deg;
+	top: unset;
+	bottom: 0;
+}
+
+/* Side */
+[:--D*="@mesh-left"] {
+	--D_OG: left;
+	--D__SBG: var(--D_S-L);
+	--D__MRY0: -90deg;
+}
+
+[:--D*="@mesh-right"] {
+	--D_OG: right;
+	--D__SBG: var(--D_S-R);
+	--D__MRY0: 90deg;
+	right: 0;
+	left: unset;
+}

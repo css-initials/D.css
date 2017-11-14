@@ -1,0 +1,33 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@panel
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+[:--D*="@panel"],
+[:--D*="@PANEL"] > * {
+	background-color: var(--D_S-F);
+	&::after {
+		content: "";
+	}
+}
+
+[:--D*="@panel-0"]::after ,
+[:--D*="@PANEL-0"] > *::after,
+[:--D*="@panel-1"] > :first-child,
+[:--D*="@PANEL-1"] > * > :first-child,
+[:--D*="@panel-2"] > :nth-child(2),
+[:--D*="@PANEL-2"] > * > :nth-child(2) {
+	border: var(--D_WF);
+	border-radius: inherit;
+	background-color: var(--D_S-B);
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	transform:
+		translateZ(-.1px)
+		rotateY(180deg)
+	;
+}
