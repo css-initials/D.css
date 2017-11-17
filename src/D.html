@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="D.css">
+	<title>D.css</title>
+	<style>
+
+	/* substitute A.css */
+	.box {
+		width: 100px;
+		animation: rotate 10s infinite linear;
+	}
+	@keyframes rotate {
+		0% {
+			transform: rotate3d(1,1,1,0deg);
+		}
+		100% {
+			transform: rotate3d(1,1,1,360deg);
+		}
+	}
+
+	</style>
+</head>
+<body>
+	<h1>D</h1>
+	<div class="box" data-D="@cube-1_shader-b">
+		<div>
+			<p>A</p>
+		</div>
+		<div>
+			<p>B</p>
+			<p>B</p>
+			<p>B</p>
+			<p>B</p>
+		</div>
+	</div>
+</body>
+</html>
