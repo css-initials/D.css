@@ -6,34 +6,55 @@
 	<title>D.css</title>
 	<style>
 
-	/* substitute A.css */
 	.box {
+		margin: 50px auto;
 		width: 100px;
-		animation: rotate 10s infinite linear;
+		/*animation: rotate 10s infinite linear;*/
 	}
+
 	@keyframes rotate {
 		0% {
-			transform: rotate3d(1,1,1,0deg);
+			transform: rotate3d(-1,-1,0,0deg);
 		}
 		100% {
-			transform: rotate3d(1,1,1,360deg);
+			transform: rotate3d(-1,-1,0,360deg);
 		}
 	}
 
 	</style>
 </head>
 <body>
-	<h1>D</h1>
-	<div class="box" data-D="@cube-1_shader-b">
-		<div>
-			<p>A</p>
-		</div>
-		<div>
-			<p>B</p>
-			<p>B</p>
-			<p>B</p>
-			<p>B</p>
-		</div>
+	<h1>D.css</h1>
+	<p><a href="http://dimension.css-initials.com/">D.css - Reference</a></p>
+
+	<h2>@cube-0</h2>
+	<div class="box" data-D="@cube-0_wireframe-b @x-down @y-down+">
+		A
 	</div>
+
+	<h2>@cube-1</h2>
+	<div class="box" data-D="@cube-1_wireframe-b @x-down @y-down+">
+		A
+		<div>B</div>
+	</div>
+
+	<h2>@cube-2</h2>
+	<div class="box" data-D="@cube-1_wireframe-b @x-down @y-down+">
+		<div>A</div>
+		<div>B</div>
+	</div>
+
+	<h2>@cube-2 + _shader</h2>
+	<div class="box" data-D="@cube-1_wireframe-b_shader @x-down @y-down+">
+		<div>A</div>
+		<div>B</div>
+	</div>
+
+	<h2>@cube-2 + _shader-b</h2>
+	<div class="box" data-D="@cube-1_wireframe-w_shader-b @x-down @y-down+" style="height:">
+		<div>A</div>
+		<div>B</div>
+	</div>
+
 </body>
 </html>
