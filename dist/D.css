@@ -318,7 +318,7 @@
 }
 
 /*
-@import url('module_D/_panel.css');
+@import url('module/_panel.css');
 */
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -623,8 +623,6 @@
 	--D_S-T: inherit;
 	--D_S-BT: inherit;
 	--D_WF-A: none;	
-
-
 }
 
 /*-----------------------

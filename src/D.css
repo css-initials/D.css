@@ -4,10 +4,10 @@
  * License: MIT
  */
 
-@import url('module_D/_init.css');
-@import url('module_D/_xyz.css');
+@import url('module/_init.css');
+@import url('module/_xyz.css');
 /*
-@import url('module_D/_panel.css');
+@import url('module/_panel.css');
 */
-@import url('module_D/_cube.css');
-@import url('module_D/_modifier.css');
+@import url('module/_cube.css');
+@import url('module/_modifier.css');
